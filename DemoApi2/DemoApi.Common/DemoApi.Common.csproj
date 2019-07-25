@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DemoApi.Common</RootNamespace>
     <AssemblyName>DemoApi.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -126,11 +127,13 @@
     <Compile Include="Exceptions\UnAuthorizeException.cs" />
     <Compile Include="Extension\IntExtension.cs" />
     <Compile Include="Helper\CurrentUserIdentityClaimHelper.cs" />
+    <Compile Include="Installers\ControllersInstaller.cs" />
     <Compile Include="Model\AspNetUserCommon.cs" />
     <Compile Include="Pagination\PaginationAndDataResult.cs" />
     <Compile Include="Pagination\PaginationConst.cs" />
     <Compile Include="Pagination\PaginationRequest.cs" />
     <Compile Include="Pagination\PaginationResult.cs" />
+    <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

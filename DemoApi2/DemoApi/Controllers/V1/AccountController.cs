@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using DemoApi.Models;
 using DemoApi.Providers;
 using DemoApi.Results;
+using DemoApi.HttpActionResult;
 
 namespace DemoApi.Controllers
 {
@@ -234,7 +235,7 @@ namespace DemoApi.Controllers
 
             if (!User.Identity.IsAuthenticated)
             {
-                return new ChallengeResult(provider, this);
+                return new Results.ChallengeResult(provider, this);
             }
 
             ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
@@ -247,7 +248,7 @@ namespace DemoApi.Controllers
             if (externalLogin.LoginProvider != provider)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                return new ChallengeResult(provider, this);
+                return new Results.ChallengeResult(provider, this);
             }
 
             ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
@@ -321,7 +322,7 @@ namespace DemoApi.Controllers
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
-        public async Task<IHttpActionResult> Register(RegisterBindingModel model)
+        public async Task<IHttpActionResult> Register(HttpRequestMessage requestMessage,RegisterBindingModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -337,7 +338,7 @@ namespace DemoApi.Controllers
                 return GetErrorResult(result);
             }
 
-            return Ok();
+            return new TCSuccessHttpActionResult(requestMessage, true);
         }
 
         // POST api/Account/RegisterExternal
