@@ -118,28 +118,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ContainerBootstrapper.cs" />
-    <Compile Include="App_Start\WindsorActivator.cs" />
+    <Compile Include="AppSettingWebConfig\BaseAppSettingWebConfig.cs" />
+    <Compile Include="AppSettingWebConfig\IAppSettingWebconfig.cs" />
+    <Compile Include="AppSettingWebConfig\ProductionSetting.cs" />
+    <Compile Include="AppSettingWebConfig\StagingSetting.cs" />
+    <Compile Include="AppSettingWebConfig\WindsorInstall.cs" />
     <Compile Include="Enums\CommonStatus.cs" />
     <Compile Include="Enums\EnumHelper.cs" />
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Exceptions\BaseException.cs" />
     <Compile Include="Exceptions\UnAuthorizeException.cs" />
     <Compile Include="Extension\IntExtension.cs" />
+    <Compile Include="FileManager\FileConstant.cs" />
+    <Compile Include="FileManager\FileInfoModel.cs" />
+    <Compile Include="FileManager\FileManager.cs" />
+    <Compile Include="FileManager\FileMemoryStreamModel.cs" />
+    <Compile Include="FileManager\FileStreamModel.cs" />
+    <Compile Include="FileManager\IFileManager.cs" />
+    <Compile Include="FileManager\WindsorInstall.cs" />
     <Compile Include="Helper\CurrentUserIdentityClaimHelper.cs" />
-    <Compile Include="Installers\ControllersInstaller.cs" />
+    <Compile Include="Helper\GUIDHelper.cs" />
     <Compile Include="Model\AspNetUserCommon.cs" />
     <Compile Include="Pagination\PaginationAndDataResult.cs" />
     <Compile Include="Pagination\PaginationConst.cs" />
     <Compile Include="Pagination\PaginationRequest.cs" />
     <Compile Include="Pagination\PaginationResult.cs" />
-    <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Constants\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

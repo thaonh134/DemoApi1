@@ -347,6 +347,7 @@
     <Compile Include="Controllers\V1\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\V1\DemoApiBaseController.cs" />
+    <Compile Include="Controllers\V1\FileManagerController.cs" />
     <Compile Include="Controllers\V1\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -420,6 +421,9 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Readme.md" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="ResourcesUpload\.gitignore" />
+    <Content Include="ResourcesUpload\Production\Avatar\.gitignore" />
+    <Content Include="ResourcesUpload\Staging\Avatar\.gitignore" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
