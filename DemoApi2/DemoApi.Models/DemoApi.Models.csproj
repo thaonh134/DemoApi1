@@ -140,12 +140,9 @@
     <Compile Include="Account\IdendityLoginResultModel.cs" />
     <Compile Include="Account\LoginModel.cs" />
     <Compile Include="Account\LoginResultModel.cs" />
-    <Compile Include="App_Start\ContainerBootstrapper.cs" />
-    <Compile Include="App_Start\WindsorActivator.cs" />
     <Compile Include="Base\BaseModel.cs" />
     <Compile Include="Base\IdAndNameModel.cs" />
     <Compile Include="Class1.cs" />
-    <Compile Include="Installers\ControllersInstaller.cs" />
     <Compile Include="Mappers\Users\UserMapping.cs" />
     <Compile Include="Medias\EditMediaModel.cs" />
     <Compile Include="Medias\AddMediaModel.cs" />

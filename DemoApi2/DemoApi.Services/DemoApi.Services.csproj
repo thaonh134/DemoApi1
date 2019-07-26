@@ -126,11 +126,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\ContainerBootstrapper.cs" />
-    <Compile Include="App_Start\WindsorActivator.cs" />
     <Compile Include="Base\BaseService.cs" />
-    <Compile Include="Installers\ControllersInstaller.cs" />
-    <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Interface\IMediaService.cs" />
     <Compile Include="Services\Interface\IUserService.cs" />
