@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace DemoApi.Database.Repositories
 {
-    public class AspNetUserRepository : BaseRepositoryDateModify<AspNetUser, EverliveEntities>, IAspNetUserRepository
+    public class AspNetUserRepository : BaseRepositoryDateModify<AspNetUser, test15_api_everEntities>, IAspNetUserRepository
     {
-        public AspNetUserRepository(EverliveEntities dbContext) : base(dbContext)
+        public AspNetUserRepository(test15_api_everEntities dbContext) : base(dbContext)
         {
         }
     }

@@ -13,7 +13,7 @@ namespace DemoApi.WindsorInstallers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<EverliveEntities>().LifestyleScoped());
+            container.Register(Component.For<test15_api_everEntities>().LifestyleScoped());
         }
 
        

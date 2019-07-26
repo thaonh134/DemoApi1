@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Database\DatabaseContext\DemoDbContext.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Database\DatabaseContext\DemoDbContext.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

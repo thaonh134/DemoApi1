@@ -39,9 +39,9 @@ namespace DemoApi.Database.DatabaseContext
         public string Address { get; set; }
         public string ResourceUrl { get; set; }
         public string Description { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
         public Nullable<int> Gender { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

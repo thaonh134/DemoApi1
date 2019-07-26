@@ -199,9 +199,6 @@
     <Compile Include="DatabaseContext\Medium.cs">
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseContext\sysdiagram.cs">
-      <DependentUpon>DemoDbContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseContext\Tag.cs">
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
@@ -237,6 +234,12 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DemoApi.Common\DemoApi.Common.csproj">
+      <Project>{8D1D126A-94C3-45F6-87EF-46949E37F95F}</Project>
+      <Name>DemoApi.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="DatabaseContext\DemoDbContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DemoDbContext.edmx</DependentUpon>
@@ -247,12 +250,6 @@
       <DependentUpon>DemoDbContext.edmx</DependentUpon>
       <LastGenOutput>DemoDbContext.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DemoApi.Common\DemoApi.Common.csproj">
-      <Project>{8D1D126A-94C3-45F6-87EF-46949E37F95F}</Project>
-      <Name>DemoApi.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

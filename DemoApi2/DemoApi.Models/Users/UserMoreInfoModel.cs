@@ -27,7 +27,7 @@ namespace DemoApi.Models.Users
         {
             AspNetUser data = null;
             var result = new UserMoreInfoModel();
-            using (EverliveEntities dbContext = new EverliveEntities())
+            using (test15_api_everEntities dbContext = new test15_api_everEntities())
             {
                 IAspNetUserRepository aspNetUserRepository = new AspNetUserRepository(dbContext);
                 data = aspNetUserRepository.Get(x => x.Id == userId);
@@ -38,7 +38,7 @@ namespace DemoApi.Models.Users
         public static List<UserMoreInfoModel> GetMoreUserInforByEmail(string Email, LoginType loginType)
         {
             var result = new List<UserMoreInfoModel>();
-            using (EverliveEntities dbContext = new EverliveEntities())
+            using (test15_api_everEntities dbContext = new test15_api_everEntities())
             {
                 IAspNetUserRepository aspNetUserRepository = new AspNetUserRepository(dbContext);
                 var data = aspNetUserRepository.GetMulti(x => x.Email == Email);

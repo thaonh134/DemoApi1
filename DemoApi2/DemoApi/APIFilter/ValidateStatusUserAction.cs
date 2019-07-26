@@ -33,7 +33,7 @@ namespace DemoApi.APIFilter
                 {
                     throw new UnAuthorizeException("AUTH_0003", "Phiên truy cập không hợp lệ");
                 }
-                EverliveEntities dbContext = new EverliveEntities();
+                test15_api_everEntities dbContext = new test15_api_everEntities();
                 IAspNetUserRepository _aspNetUserRepository = new AspNetUserRepository(dbContext);
                 var user = _aspNetUserRepository.Get(x => x.Id == PrimarySid.Value);
 

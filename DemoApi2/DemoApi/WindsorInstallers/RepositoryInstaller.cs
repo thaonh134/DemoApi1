@@ -24,7 +24,7 @@ namespace DemoApi.WindsorInstallers
                             .WithServiceAllInterfaces()
                             .LifestyleScoped());
 
-            container.Register(Component.For<IUnitOfWork>().ImplementedBy<BaseUnitOfWork<EverliveEntities>>().LifestyleScoped());
+            container.Register(Component.For<IUnitOfWork>().ImplementedBy<BaseUnitOfWork<test15_api_everEntities>>().LifestyleScoped());
         }
     }
     
