@@ -199,6 +199,9 @@
     <Compile Include="DatabaseContext\Medium.cs">
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseContext\sysdiagram.cs">
+      <DependentUpon>DemoDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseContext\Tag.cs">
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
@@ -217,6 +220,8 @@
     <Compile Include="ReadOnlyDatabaseAttribute.cs" />
     <Compile Include="Repositories\AspNetUserRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAspNetUserRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMediaRepository.cs" />
+    <Compile Include="Repositories\MediaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
