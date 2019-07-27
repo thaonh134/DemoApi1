@@ -68,6 +68,7 @@ D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Services\obj\Debu
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Services.dll.config
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Services.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Services.pdb
+C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\AutoMapper.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Castle.Core.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Castle.Windsor.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Castle.Windsor.Web.Mvc.dll
@@ -87,6 +88,7 @@ C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Microso
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Newtonsoft.Json.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Owin.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.ValueTuple.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.Helpers.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.Http.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.Mvc.dll
@@ -96,14 +98,14 @@ C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\WebActivatorEx.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\LinqKit.dll
-C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\AutoMapper.dll
-C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.ValueTuple.dll
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Common.pdb
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Common.dll.config
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Database.pdb
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Database.dll.config
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Models.pdb
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\DemoApi.Models.dll.config
+C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\AutoMapper.pdb
+C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\AutoMapper.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Castle.Core.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Castle.Windsor.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\EntityFramework.xml
@@ -117,6 +119,7 @@ C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Microso
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Microsoft.Owin.Security.OAuth.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\Newtonsoft.Json.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.ValueTuple.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.Helpers.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.Http.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.Mvc.xml
@@ -125,9 +128,6 @@ C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\LinqKit.xml
-C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\AutoMapper.pdb
-C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\AutoMapper.xml
-C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\bin\Debug\System.ValueTuple.xml
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\obj\Debug\DemoApi.Services.csprojAssemblyReference.cache
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\obj\Debug\DemoApi.Services.csproj.CoreCompileInputs.cache
 C:\Users\SONSON\source\repos\DemoApi\DemoApi2\DemoApi.Services\obj\Debug\DemoApi.Services.csproj.CopyComplete
