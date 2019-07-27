@@ -146,6 +146,8 @@
     <Compile Include="Mappers\Users\UserMapping.cs" />
     <Compile Include="Medias\EditMediaModel.cs" />
     <Compile Include="Medias\AddMediaModel.cs" />
+    <Compile Include="Medias\MediaCommentModel.cs" />
+    <Compile Include="Medias\MediaDetailModel.cs" />
     <Compile Include="Medias\MediaModel.cs" />
     <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

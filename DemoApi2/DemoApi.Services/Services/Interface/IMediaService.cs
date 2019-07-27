@@ -15,6 +15,15 @@ namespace DemoApi.Services.Services.Interface
         int Update(EditMediaModel model);
         int Delete(int id);
         List<MediaModel> GetAll();
+        List<MediaModel> GetAllByUserId(int userId);
+        List<MediaCommentModel> GetAllFavoriteByMediaId(int mediaId);
+        int AddFavorite(int mediaId);
+        int DeleteFavorite(int id);
+        List<MediaCommentModel> GetAllCommentByMediaId(int mediaId);
+        int AddComment(MediaCommentModel model);
+        int RepComment(MediaCommentModel model);
+        int AddMediaDetail(MediaDetailModel model);
+        int DeleteMediaDetail(int id);
 
     }
 }

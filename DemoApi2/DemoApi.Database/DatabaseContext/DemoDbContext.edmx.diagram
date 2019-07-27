@@ -18,7 +18,7 @@
         <EntityTypeShape EntityType="test15_api_everModel.AspNetUser" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.Friend" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.Medium" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="test15_api_everModel.MediaComment" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="test15_api_everModel.MediaComment" Width="1.5" PointX="5" PointY="10.5" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.MediaCommentDetail" Width="2.25" PointX="8.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.MediaDetai" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.MediaFavorite" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
