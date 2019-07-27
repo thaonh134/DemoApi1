@@ -12,14 +12,12 @@ namespace DemoApi.Database.DatabaseContext
     using System;
     using System.Collections.Generic;
     
-    public partial class Medium
+    public partial class sysdiagram
     {
-        public int Id { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public string Url { get; set; }
-        public string Type { get; set; }
-        public Nullable<int> IsDelete { get; set; }
-        public System.DateTime CreationTime { get; set; }
-        public System.DateTime LastModificationTime { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -139,6 +139,8 @@
     <Property Name="Url" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="IsDelete" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModificationTime" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
   <EntityType Name="MediaComment">
     <Key>
@@ -272,5 +274,16 @@
       <End Role="AspNetRoles" EntitySet="AspNetRoles" />
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="test15_api_everModel.sysdiagram" />
   </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
 </Schema>
