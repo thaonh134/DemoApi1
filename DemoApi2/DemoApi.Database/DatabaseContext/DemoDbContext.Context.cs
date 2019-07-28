@@ -37,7 +37,6 @@ namespace DemoApi.Database.DatabaseContext
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Friend> Friends { get; set; }
-        public virtual DbSet<Medium> Media { get; set; }
         public virtual DbSet<MediaComment> MediaComments { get; set; }
         public virtual DbSet<MediaCommentDetail> MediaCommentDetails { get; set; }
         public virtual DbSet<MediaDetai> MediaDetais { get; set; }
@@ -47,5 +46,6 @@ namespace DemoApi.Database.DatabaseContext
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserFollow> UserFollows { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Medium> Media { get; set; }
     }
 }

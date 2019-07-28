@@ -130,18 +130,6 @@
     <Property Name="RelationId" Type="Int32" />
     <Property Name="Status" Type="Int32" />
   </EntityType>
-  <EntityType Name="Medium">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="Int32" />
-    <Property Name="Url" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="IsDelete" Type="Int32" />
-    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="LastModificationTime" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
   <EntityType Name="MediaComment">
     <Key>
       <PropertyRef Name="Id" />
@@ -253,7 +241,6 @@
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
     <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
     <EntitySet Name="Friends" EntityType="Self.Friend" />
-    <EntitySet Name="Media" EntityType="Self.Medium" />
     <EntitySet Name="MediaComments" EntityType="Self.MediaComment" />
     <EntitySet Name="MediaCommentDetails" EntityType="Self.MediaCommentDetail" />
     <EntitySet Name="MediaDetais" EntityType="Self.MediaDetai" />
@@ -275,6 +262,7 @@
       <End Role="AspNetUsers" EntitySet="AspNetUsers" />
     </AssociationSet>
     <EntitySet Name="sysdiagrams" EntityType="test15_api_everModel.sysdiagram" />
+    <EntitySet Name="Media" EntityType="test15_api_everModel.Medium" />
   </EntityContainer>
   <EntityType Name="sysdiagram">
     <Key>
@@ -285,5 +273,17 @@
     <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Medium">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="Url" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="IsDelete" Type="Int32" />
+    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LastModificationTime" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
 </Schema>

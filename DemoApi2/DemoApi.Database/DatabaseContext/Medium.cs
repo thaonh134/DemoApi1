@@ -19,7 +19,7 @@ namespace DemoApi.Database.DatabaseContext
         public string Url { get; set; }
         public string Type { get; set; }
         public Nullable<int> IsDelete { get; set; }
-        public System.DateTime CreationTime { get; set; }
-        public System.DateTime LastModificationTime { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public System.DateTime UpdatedDate { get; set; }
     }
 }

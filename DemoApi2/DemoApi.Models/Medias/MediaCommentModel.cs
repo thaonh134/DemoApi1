@@ -14,7 +14,7 @@ namespace DemoApi.Models.Medias
         public string ContentComment { get; set; }
         public string Type { get; set; }
         public int IsDelete { get; set; }
-        //public DateTime CreationTime { get; set; }
-        //public DateTime LastModificationTime { get; set; }
+        //public DateTime CreatedDate { get; set; }
+        //public DateTime UpdatedDate { get; set; }
     }
 }
