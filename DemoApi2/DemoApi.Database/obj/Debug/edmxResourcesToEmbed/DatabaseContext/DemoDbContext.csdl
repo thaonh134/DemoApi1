@@ -125,10 +125,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="Int32" />
-    <Property Name="FriendId" Type="Int32" />
+    <Property Name="UserId" Type="String" />
+    <Property Name="FriendId" Type="String" />
     <Property Name="RelationId" Type="Int32" />
     <Property Name="Status" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="MediaComment">
     <Key>
@@ -283,7 +285,7 @@
     <Property Name="Url" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="IsDelete" Type="Int32" />
-    <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="LastModificationTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
 </Schema>

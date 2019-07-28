@@ -15,8 +15,8 @@ namespace DemoApi.Database.DatabaseContext
     public partial class Friend
     {
         public int Id { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public Nullable<int> FriendId { get; set; }
+        public string UserId { get; set; }
+        public string FriendId { get; set; }
         public Nullable<int> RelationId { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
