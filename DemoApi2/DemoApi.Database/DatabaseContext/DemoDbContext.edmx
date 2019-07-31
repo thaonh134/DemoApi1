@@ -132,10 +132,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="int" />
-          <Property Name="FriendId" Type="int" />
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+          <Property Name="FriendId" Type="nvarchar" MaxLength="128" />
           <Property Name="RelationId" Type="int" />
           <Property Name="Status" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
         </EntityType>
         <EntityType Name="Media">
           <Key>
@@ -146,8 +148,8 @@
           <Property Name="Url" Type="nchar" MaxLength="10" />
           <Property Name="Type" Type="nchar" MaxLength="10" />
           <Property Name="IsDelete" Type="int" />
-          <Property Name="CreationTime" Type="datetime" Nullable="false" />
-          <Property Name="LastModificationTime" Type="datetime" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityType Name="MediaComment">
           <Key>
@@ -451,10 +453,12 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="Int32" />
-          <Property Name="FriendId" Type="Int32" />
+          <Property Name="UserId" Type="String" />
+          <Property Name="FriendId" Type="String" />
           <Property Name="RelationId" Type="Int32" />
           <Property Name="Status" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="MediaComment">
           <Key>
@@ -609,8 +613,8 @@
           <Property Name="Url" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="IsDelete" Type="Int32" />
-          <Property Name="CreationTime" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="LastModificationTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -743,6 +747,8 @@
           <EntitySetMapping Name="Friends">
             <EntityTypeMapping TypeName="test15_api_everModel.Friend">
               <MappingFragment StoreEntitySet="Friends">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="FriendId" ColumnName="FriendId" />
@@ -847,8 +853,8 @@
           <EntitySetMapping Name="Media">
             <EntityTypeMapping TypeName="test15_api_everModel.Medium">
               <MappingFragment StoreEntitySet="Media">
-                <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
-                <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
                 <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Url" ColumnName="Url" />

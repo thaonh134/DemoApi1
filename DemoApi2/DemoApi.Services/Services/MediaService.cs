@@ -26,20 +26,37 @@ namespace DemoApi.Services.Services
     {
         private IUnitOfWork _unitOfWork;
         private IMediaRepository _mediaRepository;
+        private IMediaFavoriteRepository _mediaFavoriteRepository;
+        private IMediaCommentRepository _mediaCommentRepository;
+        private IMediaCommentDetailRepository _mediaCommentDetailRepository;
+        private IMediaDetailRepository _mediaDetailRepository;
         public MediaService(IUnitOfWork unitOfWork,
-            IMediaRepository mediaRepository)
+            IMediaRepository mediaRepository,
+            IMediaFavoriteRepository mediaFavoriteRepository,
+            IMediaCommentRepository mediaCommentRepository,
+            IMediaCommentDetailRepository mediaCommentDetailRepository,
+            IMediaDetailRepository mediaDetailRepository)
         {
             _unitOfWork = unitOfWork;
             _mediaRepository = mediaRepository;
+            _mediaFavoriteRepository = mediaFavoriteRepository;
+            _mediaCommentRepository = mediaCommentRepository;
+            _mediaCommentDetailRepository = mediaCommentDetailRepository;
+            _mediaDetailRepository = mediaDetailRepository;
         }
+
+        #region Media
+
         public int Create(AddMediaModel model)
         {
+            model.UserId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
             var itemEntry = Mapper.Map<Medium>(model);
             _mediaRepository.Create(itemEntry);
             return _unitOfWork.SaveChanges();
         }
         public int Update(EditMediaModel model)
         {
+            model.UserId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
             var itemEntry = Mapper.Map<Medium>(model);
             _mediaRepository.Update(itemEntry);
             return _unitOfWork.SaveChanges();
@@ -56,5 +73,88 @@ namespace DemoApi.Services.Services
             if (items == null) return new List<MediaModel>();
             return Mapper.Map<List<MediaModel>>(items);
         }
+        public List<MediaModel> GetAllByUserId(int userId)
+        {
+            var items = _mediaRepository.GetAll().Where(x => x.UserId.HasValue && x.UserId.Value == userId).ToList();
+            if (items == null) return new List<MediaModel>();
+            return Mapper.Map<List<MediaModel>>(items);
+        }
+
+        #endregion
+
+        #region MediaFavorite
+        public List<MediaCommentModel> GetAllFavoriteByMediaId(int mediaId)
+        {
+            var items = _mediaFavoriteRepository.GetAll().Where(x => x.MediaId.HasValue && x.MediaId.Value == mediaId).ToList();
+            if (items == null) return new List<MediaCommentModel>();
+            return Mapper.Map<List<MediaCommentModel>>(items);
+        }
+        public int AddFavorite(int mediaId)
+        {
+            var userId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            MediaFavorite itemEntry = new MediaFavorite()
+            {
+                UserId = userId,
+                MediaId = mediaId
+            };
+            _mediaFavoriteRepository.Create(itemEntry);
+            return _unitOfWork.SaveChanges(); ;
+        }
+        public int DeleteFavorite(int id)
+        {
+            var itemEntry = _mediaFavoriteRepository.Get(x => x.Id == id);
+
+            _mediaFavoriteRepository.Delete(itemEntry);
+            return _unitOfWork.SaveChanges(); ;
+        }
+
+        #endregion
+
+        #region MediaComment
+
+        public List<MediaCommentModel> GetAllCommentByMediaId(int mediaId)
+        {
+            var items = _mediaCommentRepository.GetAll().Where(x => x.MediaId.HasValue && x.MediaId.Value == mediaId).ToList();
+            if (items == null) return new List<MediaCommentModel>();
+            return Mapper.Map<List<MediaCommentModel>>(items);
+        }
+        public int AddComment(MediaCommentModel model)
+        {
+            var userId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            model.ByUserId = userId;
+            var itemEntry = Mapper.Map<MediaComment>(model);
+            _mediaCommentRepository.Create(itemEntry);
+            return _unitOfWork.SaveChanges(); ;
+        }
+        public int RepComment(MediaCommentModel model)
+        {
+            var userId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            model.ByUserId = userId;
+            var itemEntry = Mapper.Map<MediaCommentDetail>(model);
+            _mediaCommentDetailRepository.Create(itemEntry);
+            return _unitOfWork.SaveChanges(); ;
+        }
+
+        #endregion
+
+        #region MediaDetail
+
+        public int AddMediaDetail(MediaDetailModel model)
+        {
+            var userId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            model.ByUserId = userId;
+            var itemEntry = Mapper.Map<MediaDetai>(model);
+            _mediaDetailRepository.Create(itemEntry);
+            return _unitOfWork.SaveChanges(); ;
+        }
+        public int DeleteMediaDetail(int id)
+        {
+            var itemEntry = _mediaDetailRepository.Get(x => x.Id == id);
+
+            _mediaDetailRepository.Delete(itemEntry);
+            return _unitOfWork.SaveChanges(); ;
+        }
+
+        #endregion
     }
 }

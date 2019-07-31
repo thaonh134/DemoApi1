@@ -45,7 +45,6 @@ D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Common\bin\Debug\
 D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Common\bin\Debug\System.Web.WebPages.xml
 D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Common\bin\Debug\System.Web.WebPages.Deployment.xml
 D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Common\bin\Debug\System.Web.WebPages.Razor.xml
-D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Common\obj\Debug\DemoApi.Common.csprojResolveAssemblyReference.cache
 D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Common\obj\Debug\DemoApi.Common.csproj.CoreCompileInputs.cache
 D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Common\obj\Debug\DemoApi.Common.dll
 D:\CODE\mvc\EverLiveTravel\api_athao\DemoApi1\DemoApi2\DemoApi.Common\obj\Debug\DemoApi.Common.pdb

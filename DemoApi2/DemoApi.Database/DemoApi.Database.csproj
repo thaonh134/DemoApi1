@@ -216,7 +216,15 @@
     <Compile Include="ReadOnlyDatabaseAttribute.cs" />
     <Compile Include="Repositories\AspNetUserRepository.cs" />
     <Compile Include="Repositories\Interfaces\IAspNetUserRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMediaCommentDetailRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMediaCommentRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMediaFavoriteRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMediaDetailRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMediaRepository.cs" />
+    <Compile Include="Repositories\MediaCommentDetailRepository.cs" />
+    <Compile Include="Repositories\MediaCommentRepository.cs" />
+    <Compile Include="Repositories\MediaFavoriteRepository.cs" />
+    <Compile Include="Repositories\MediaDetailRepository.cs" />
     <Compile Include="Repositories\MediaRepository.cs" />
   </ItemGroup>
   <ItemGroup>

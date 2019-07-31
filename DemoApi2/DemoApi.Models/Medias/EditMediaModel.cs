@@ -8,13 +8,9 @@ namespace DemoApi.Models.Medias
 {
     public class EditMediaModel
     {
-        public EditMediaModel()
-        {
-            LastModificationTime = DateTime.Now;
-        }
         public int UserId { get; set; }
         public string Type { get; set; }
-        public DateTime LastModificationTime { get; set; }
+        public DateTime UpdatedDate { get; set; }
         public int IsDelete { get; set; }
     }
 }

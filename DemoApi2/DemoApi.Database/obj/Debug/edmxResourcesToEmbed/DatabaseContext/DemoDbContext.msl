@@ -126,6 +126,8 @@
     <EntitySetMapping Name="Friends">
       <EntityTypeMapping TypeName="test15_api_everModel.Friend">
         <MappingFragment StoreEntitySet="Friends">
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="UserId" ColumnName="UserId" />
           <ScalarProperty Name="FriendId" ColumnName="FriendId" />
@@ -230,8 +232,8 @@
     <EntitySetMapping Name="Media">
       <EntityTypeMapping TypeName="test15_api_everModel.Medium">
         <MappingFragment StoreEntitySet="Media">
-          <ScalarProperty Name="LastModificationTime" ColumnName="LastModificationTime" />
-          <ScalarProperty Name="CreationTime" ColumnName="CreationTime" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
           <ScalarProperty Name="Type" ColumnName="Type" />
           <ScalarProperty Name="Url" ColumnName="Url" />

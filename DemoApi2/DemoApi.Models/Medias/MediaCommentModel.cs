@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 
 namespace DemoApi.Models.Medias
 {
-    public class MediaModel
+    public class MediaCommentModel
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public string Url { get; set; }
+        public int MediaId { get; set; }
+        public int ByUserId { get; set; }
+        public string ContentComment { get; set; }
         public string Type { get; set; }
         public int IsDelete { get; set; }
-        public DateTime CreatedDate { get; set; }
-        public DateTime UpdatedDate { get; set; }
+        //public DateTime CreatedDate { get; set; }
+        //public DateTime UpdatedDate { get; set; }
     }
 }
