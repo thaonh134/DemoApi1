@@ -16,10 +16,10 @@ namespace DemoApi.WindsorInstallers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            //container.Register(Component.For<ApplicationUserManager>()
-            //   .UsingFactoryMethod<ApplicationUserManager>(() => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()).LifestylePerWebRequest());
-            //container.Register(Component.For<ApplicationRoleManager>()
-            //  .UsingFactoryMethod<ApplicationRoleManager>(() => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationRoleManager>()).LifestylePerWebRequest());
+            container.Register(Component.For<ApplicationUserManager>()
+               .UsingFactoryMethod<ApplicationUserManager>(() => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationUserManager>()).LifestylePerWebRequest());
+            container.Register(Component.For<ApplicationRoleManager>()
+              .UsingFactoryMethod<ApplicationRoleManager>(() => HttpContext.Current.GetOwinContext().GetUserManager<ApplicationRoleManager>()).LifestylePerWebRequest());
             container.Register(Classes.FromAssemblyContaining<ReadOnlyDatabaseAttribute>().Where(e => e.Name.EndsWith("Repository"))
                             .WithServiceAllInterfaces()
                             .LifestyleScoped());

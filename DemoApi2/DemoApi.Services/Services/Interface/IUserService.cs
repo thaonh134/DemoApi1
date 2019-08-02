@@ -1,5 +1,7 @@
 ﻿using DemoApi.Models.Account;
 using DemoApi.Models.Users;
+using DemoApi.Models.Users.UserManagerModel;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +14,6 @@ namespace DemoApi.Services.Services.Interface
     {
         UserMoreInfoModel GetUserInfor();
 
+        Task<IdentityResult> EditUserInfor(EditUserInforModel model);
     }
 }

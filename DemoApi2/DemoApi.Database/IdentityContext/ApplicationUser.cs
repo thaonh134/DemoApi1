@@ -15,12 +15,13 @@ namespace DemoApi.Database.IdentityContext
         public string LastName { get; set; }
         public string Address { get; set; }
         public string ResourceUrl { get; set; }
-        public int BlockType { get; set; }
-        public Nullable<System.DateTime> BlockExpired { get; set; }
+        public string Description { get; set; }
+        //public int BlockType { get; set; }
+        //public Nullable<System.DateTime> BlockExpired { get; set; }
         public Nullable<DateTime> Birthday { get; set; }
         public Nullable<byte> Gender { get; set; }
         public DateTime CreatedDate { get; set; }
-        public Nullable<int> CountryISO3166Numeric { get; set; }
+        //public Nullable<int> CountryISO3166Numeric { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType

@@ -151,6 +151,7 @@
     <Compile Include="Medias\MediaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\ApplicationUserManager.cs" />
+    <Compile Include="Users\UserManagerModel\UserManagerModel.cs" />
     <Compile Include="Users\UserMoreInfoModel.cs" />
   </ItemGroup>
   <ItemGroup>

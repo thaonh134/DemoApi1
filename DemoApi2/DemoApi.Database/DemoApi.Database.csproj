@@ -212,6 +212,7 @@
     <Compile Include="IdentityContext\ApplicationDbContext.cs" />
     <Compile Include="IdentityContext\ApplicationRole.cs" />
     <Compile Include="IdentityContext\ApplicationUser.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadOnlyDatabaseAttribute.cs" />
     <Compile Include="Repositories\AspNetUserRepository.cs" />

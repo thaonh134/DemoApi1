@@ -11,6 +11,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
 using DemoApi.Models;
 using DemoApi.Services;
+using DemoApi.Database.IdentityContext;
 
 namespace DemoApi.Providers
 {
