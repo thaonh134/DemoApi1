@@ -19,7 +19,7 @@ namespace DemoApi.Database.IdentityContext
         //public int BlockType { get; set; }
         //public Nullable<System.DateTime> BlockExpired { get; set; }
         public Nullable<DateTime> Birthday { get; set; }
-        public Nullable<byte> Gender { get; set; }
+        public int Gender { get; set; }
         public DateTime CreatedDate { get; set; }
         //public Nullable<int> CountryISO3166Numeric { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager, string authenticationType)

@@ -425,7 +425,6 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Readme.md" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <Content Include="ResourcesUpload\.gitignore" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -458,8 +457,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ResourcesUpload\Production\Avatar\" />
-    <Folder Include="ResourcesUpload\Staging\Avatar\" />
     <Folder Include="Views\DemoApiBase\" />
   </ItemGroup>
   <ItemGroup>

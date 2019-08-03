@@ -17,9 +17,9 @@ namespace DemoApi.Database.DatabaseContext
         public int Id { get; set; }
         public string UserId { get; set; }
         public string FriendId { get; set; }
-        public Nullable<int> RelationId { get; set; }
         public Nullable<int> Status { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public Nullable<int> RelationId { get; set; }
     }
 }

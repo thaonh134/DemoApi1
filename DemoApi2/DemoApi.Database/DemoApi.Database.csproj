@@ -179,6 +179,9 @@
     <Compile Include="DatabaseContext\Friend.cs">
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseContext\FriendRequest.cs">
+      <DependentUpon>DemoDbContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseContext\MediaComment.cs">
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
