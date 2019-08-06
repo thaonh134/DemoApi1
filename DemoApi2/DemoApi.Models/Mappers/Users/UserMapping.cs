@@ -22,6 +22,8 @@ namespace DemoApi.AutoMapConfig.UserMap
             CreateMap<ApplicationUser, EditUserInforModel>();
             CreateMap<AspNetUser, EditUserInforModel>();
             CreateMap<EditUserInforModel, ApplicationUser>()
+               .ForMember(dst => dst.Email, opt => opt.Ignore())
+               .ForMember(dst => dst.Id, opt => opt.Ignore())
                .ForMember(dst => dst.CreatedDate, opt => opt.Ignore())
                .ForMember(dst => dst.EmailConfirmed, opt => opt.Ignore())
                .ForMember(dst => dst.PasswordHash, opt => opt.Ignore())

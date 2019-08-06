@@ -37,9 +37,12 @@ namespace DemoApi.Services.Services
         }
         public async Task<IdentityResult> EditUserInfor(EditUserInforModel model)
         {
-            var userResponsitory = await GetById(model.Id);
-            if (userResponsitory == null) throw new BaseApiException("NotExist", "NotExist");
-            var user = await _userManager.FindByIdAsync(userResponsitory.Id);
+            //var userResponsitory = await GetById(model.Id);
+            //if (userResponsitory == null) throw new BaseApiException("NotExist", "NotExist");
+
+            var userId = CurrentUserIdentityClaimHelper.UserId;
+
+            var user = await _userManager.FindByIdAsync(userId);
             
             var resultTask = new IdentityResult();
             try

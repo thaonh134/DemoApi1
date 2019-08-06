@@ -22,7 +22,7 @@ namespace DemoApi.Models.Users
         public string Address { get; set; }
         public string Description { get; set; }
         public string ResourceUrl { get; set; }
-        public DateTime CreatedDate { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
         public static UserMoreInfoModel GetMoreUserInfor(string userId)
         {
             AspNetUser data = null;
