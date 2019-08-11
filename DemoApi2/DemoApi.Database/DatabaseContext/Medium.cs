@@ -15,7 +15,7 @@ namespace DemoApi.Database.DatabaseContext
     public partial class Medium
     {
         public int Id { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public string UserId { get; set; }
         public string Url { get; set; }
         public string Type { get; set; }
         public Nullable<int> IsDelete { get; set; }

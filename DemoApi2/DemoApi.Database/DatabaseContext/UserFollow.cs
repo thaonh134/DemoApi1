@@ -15,7 +15,7 @@ namespace DemoApi.Database.DatabaseContext
     public partial class UserFollow
     {
         public int Id { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public Nullable<int> FollowUser { get; set; }
+        public string UserId { get; set; }
+        public string FollowUser { get; set; }
     }
 }

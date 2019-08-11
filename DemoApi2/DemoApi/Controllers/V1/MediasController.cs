@@ -9,6 +9,9 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using DemoApi.Models.Medias;
+using DemoApi.Common.Pagination;
+using DemoApi.Common.Extension;
+using System.Threading.Tasks;
 
 namespace DemoApi.Controllers.V1
 {
@@ -44,20 +47,15 @@ namespace DemoApi.Controllers.V1
 
             return new TCSuccessHttpActionResult(requestMessage, dataResponse);
         }
-        [Route("getAllMediaByUserId")]
+        [Route("getMediaByUserId")]
         [HttpGet]
-        public IHttpActionResult GetAllMediaByUserId(HttpRequestMessage requestMessage, int userId)
+        public async Task<IHttpActionResult> GetMediaByUserId(HttpRequestMessage requestMessage
+            , string userId
+            , int? pageNumber = null,
+            int? pageSize = null)
         {
-            var users = _userService.GetUserInfor();
-            if (users == null)
-                return new TCErrorHttpActionResult(requestMessage, "AUTH_0001", "Phiên truy cập không được phép()");
-            var medias = _mediaService.GetAllByUserId(userId);
-            if (medias == null)
-                return new TCErrorHttpActionResult(requestMessage, "NOT FOUND", "Không có dữ liệu");
-
-            var dataResponse = medias;
-
-            return new TCSuccessHttpActionResult(requestMessage, dataResponse);
+            PaginationRequest pagedDataRequest = new PaginationRequest(pageNumber.DefaultZeroIfNull(), pageSize);
+            return new TCSuccessHttpActionResult(requestMessage, await _mediaService.GetMediaByUserId(pagedDataRequest, userId));
         }
         [Route("CreateMedia")]
         [HttpPost]

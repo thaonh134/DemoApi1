@@ -16,6 +16,6 @@ namespace DemoApi.Database.DatabaseContext
     {
         public int Id { get; set; }
         public Nullable<int> TagId { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public string UserId { get; set; }
     }
 }

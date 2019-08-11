@@ -15,7 +15,7 @@ namespace DemoApi.Database.DatabaseContext
     public partial class Announcement
     {
         public int Id { get; set; }
-        public Nullable<int> UserId { get; set; }
+        public string UserId { get; set; }
         public string ContentAnnoucement { get; set; }
         public Nullable<int> IsDelete { get; set; }
     }

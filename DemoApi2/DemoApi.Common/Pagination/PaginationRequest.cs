@@ -13,6 +13,7 @@ namespace DemoApi.Common.Pagination
         private int _pageSize;
         private string _locale;
         private int _startIndex;
+        private string _lastKey;
         private DateTimeOffset _lastTime;
 
         public PaginationRequest()
@@ -75,6 +76,17 @@ namespace DemoApi.Common.Pagination
             set
             {
                 _pageSize = value.GetBoundedValue(PaginationConst.MinPageSize, PaginationConst.MaxPageSize);
+            }
+        }
+        public string LastKey
+        {
+            get
+            {
+                return _lastKey;
+            }
+            set
+            {
+                _lastKey = value;
             }
         }
         public string Locale

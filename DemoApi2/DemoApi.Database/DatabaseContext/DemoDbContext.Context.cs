@@ -32,21 +32,21 @@ namespace DemoApi.Database.DatabaseContext
         public virtual DbSet<AnnouncementComment> AnnouncementComments { get; set; }
         public virtual DbSet<AnnouncementCommentDetail> AnnouncementCommentDetails { get; set; }
         public virtual DbSet<AnnouncementDetail> AnnouncementDetails { get; set; }
+        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
         public virtual DbSet<AspNetUserClaim> AspNetUserClaims { get; set; }
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
+        public virtual DbSet<Friend> Friends { get; set; }
+        public virtual DbSet<FriendRequest> FriendRequests { get; set; }
+        public virtual DbSet<Medium> Media { get; set; }
         public virtual DbSet<MediaComment> MediaComments { get; set; }
         public virtual DbSet<MediaCommentDetail> MediaCommentDetails { get; set; }
         public virtual DbSet<MediaDetai> MediaDetais { get; set; }
         public virtual DbSet<MediaFavorite> MediaFavorites { get; set; }
         public virtual DbSet<MediaWishList> MediaWishLists { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Tag> Tags { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<UserFollow> UserFollows { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<Medium> Media { get; set; }
-        public virtual DbSet<Friend> Friends { get; set; }
-        public virtual DbSet<FriendRequest> FriendRequests { get; set; }
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
     }
 }

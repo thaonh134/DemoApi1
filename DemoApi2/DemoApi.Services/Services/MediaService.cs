@@ -19,6 +19,7 @@ using DemoApi.Database.Repositories.Interfaces;
 using DemoApi.Models.Medias;
 using DemoApi.Services.Services.Interface;
 using DemoApi.Services.Common;
+using DemoApi.Common.Pagination;
 
 namespace DemoApi.Services.Services
 {
@@ -73,11 +74,17 @@ namespace DemoApi.Services.Services
             if (items == null) return new List<MediaModel>();
             return Mapper.Map<List<MediaModel>>(items);
         }
-        public List<MediaModel> GetAllByUserId(int userId)
+        public async Task<PaginationAndDataResult<MediaModel>> GetMediaByUserId(PaginationRequest pageDataRequest, string UserId)
         {
-            var items = _mediaRepository.GetAll().Where(x => x.UserId.HasValue && x.UserId.Value == userId).ToList();
-            if (items == null) return new List<MediaModel>();
-            return Mapper.Map<List<MediaModel>>(items);
+            int? lastkey = null;
+            if (!string.IsNullOrEmpty(pageDataRequest.LastKey))
+            {
+                int id;
+                int.TryParse(pageDataRequest.LastKey, out id);
+                lastkey = id;
+            }
+            var items = await _mediaRepository.SelectPageAsync(pageDataRequest, _mediaRepository.ExpressionSearch(UserId, lastkey), x => x.OrderByDescending(t => t.Id));
+            return Mapper.Map<PaginationAndDataResult<MediaModel>>(items);
         }
 
         #endregion
@@ -91,7 +98,7 @@ namespace DemoApi.Services.Services
         }
         public int AddFavorite(int mediaId)
         {
-            var userId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            var userId = CurrentUserIdentityClaimHelper.UserId;
             MediaFavorite itemEntry = new MediaFavorite()
             {
                 UserId = userId,

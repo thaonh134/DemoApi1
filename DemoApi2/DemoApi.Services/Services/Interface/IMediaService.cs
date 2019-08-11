@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DemoApi.Models.Medias;
+using DemoApi.Common.Pagination;
 
 namespace DemoApi.Services.Services.Interface
 {
@@ -15,7 +16,7 @@ namespace DemoApi.Services.Services.Interface
         int Update(EditMediaModel model);
         int Delete(int id);
         List<MediaModel> GetAll();
-        List<MediaModel> GetAllByUserId(int userId);
+        Task<PaginationAndDataResult<MediaModel>>  GetMediaByUserId(PaginationRequest pageDataRequest, string UserId);
         List<MediaCommentModel> GetAllFavoriteByMediaId(int mediaId);
         int AddFavorite(int mediaId);
         int DeleteFavorite(int id);

@@ -16,7 +16,7 @@ namespace DemoApi.Database.DatabaseContext
     {
         public int Id { get; set; }
         public int MediaCommentId { get; set; }
-        public Nullable<int> ByUserId { get; set; }
+        public string ByUserId { get; set; }
         public string ContentComment { get; set; }
     }
 }

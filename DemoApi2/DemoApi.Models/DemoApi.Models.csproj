@@ -143,6 +143,7 @@
     <Compile Include="Base\BaseModel.cs" />
     <Compile Include="Base\IdAndNameModel.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Mappers\Users\MediaMapping.cs" />
     <Compile Include="Mappers\Users\UserMapping.cs" />
     <Compile Include="Medias\EditMediaModel.cs" />
     <Compile Include="Medias\AddMediaModel.cs" />

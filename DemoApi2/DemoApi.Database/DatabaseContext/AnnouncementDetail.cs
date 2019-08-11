@@ -17,6 +17,6 @@ namespace DemoApi.Database.DatabaseContext
         public int Id { get; set; }
         public Nullable<int> AnnouncementId { get; set; }
         public Nullable<int> Type { get; set; }
-        public Nullable<int> ByUserId { get; set; }
+        public string ByUserId { get; set; }
     }
 }
