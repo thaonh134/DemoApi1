@@ -8,7 +8,7 @@ namespace DemoApi.Models.Medias
 {
     public class EditMediaModel
     {
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public string Type { get; set; }
         public DateTime UpdatedDate { get; set; }
         public int IsDelete { get; set; }

@@ -9,7 +9,7 @@ namespace DemoApi.Models.Medias
     public class MediaDetailModel
     {
         public int Id { get; set; }
-        public int ByUserId { get; set; }
+        public string ByUserId { get; set; }
         public int MediaId { get; set; }
         public string Type { get; set; }
         public int IsDelete { get; set; }

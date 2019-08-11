@@ -50,14 +50,14 @@ namespace DemoApi.Services.Services
 
         public int Create(AddMediaModel model)
         {
-            model.UserId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            model.UserId = CurrentUserIdentityClaimHelper.UserId;
             var itemEntry = Mapper.Map<Medium>(model);
             _mediaRepository.Create(itemEntry);
             return _unitOfWork.SaveChanges();
         }
         public int Update(EditMediaModel model)
         {
-            model.UserId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            model.UserId = CurrentUserIdentityClaimHelper.UserId;
             var itemEntry = Mapper.Map<Medium>(model);
             _mediaRepository.Update(itemEntry);
             return _unitOfWork.SaveChanges();
@@ -127,7 +127,7 @@ namespace DemoApi.Services.Services
         }
         public int AddComment(MediaCommentModel model)
         {
-            var userId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            var userId = CurrentUserIdentityClaimHelper.UserId;
             model.ByUserId = userId;
             var itemEntry = Mapper.Map<MediaComment>(model);
             _mediaCommentRepository.Create(itemEntry);
@@ -135,7 +135,7 @@ namespace DemoApi.Services.Services
         }
         public int RepComment(MediaCommentModel model)
         {
-            var userId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            var userId = CurrentUserIdentityClaimHelper.UserId;
             model.ByUserId = userId;
             var itemEntry = Mapper.Map<MediaCommentDetail>(model);
             _mediaCommentDetailRepository.Create(itemEntry);
@@ -148,7 +148,7 @@ namespace DemoApi.Services.Services
 
         public int AddMediaDetail(MediaDetailModel model)
         {
-            var userId = int.Parse(CurrentUserIdentityClaimHelper.UserId);
+            var userId = CurrentUserIdentityClaimHelper.UserId;
             model.ByUserId = userId;
             var itemEntry = Mapper.Map<MediaDetai>(model);
             _mediaDetailRepository.Create(itemEntry);
