@@ -15,5 +15,7 @@ namespace DemoApi.Services.Services.Interface
         UserMoreInfoModel GetUserInfor();
 
         Task<IdentityResult> EditUserInfor(EditUserInforModel model);
+
+        Task<LoginResultModel> Login(LoginModel loginModel);
     }
 }

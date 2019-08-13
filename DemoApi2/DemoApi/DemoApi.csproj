@@ -307,7 +307,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIFilter\VovAuthorizeAttribute.cs" />
     <Compile Include="APIFilter\DemoAuthorizeAttribute.cs" />
     <Compile Include="APIFilter\UnitOfWorkActionAttribute.cs" />
     <Compile Include="APIFilter\ValidateModelStateFilter.cs" />
@@ -353,6 +352,7 @@
     <Compile Include="Controllers\V1\DemoApiBaseController.cs" />
     <Compile Include="Controllers\V1\FileManagerController.cs" />
     <Compile Include="Controllers\V1\MediasController.cs" />
+    <Compile Include="Controllers\V1\RelationShipController.cs" />
     <Compile Include="Controllers\V1\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -373,6 +373,7 @@
     <Compile Include="Plumbing\WindsorControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Providers\DemoAccessTokenProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="SwaggerConfig.cs" />
@@ -458,6 +459,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\DemoApiBase\" />
+    <Folder Include="Views\RelationShip\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DemoApi.Common\DemoApi.Common.csproj">

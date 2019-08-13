@@ -14,12 +14,14 @@ using DemoApi.Models;
 using DemoApi.Database.IdentityContext;
 using DemoApi.Services;
 using Microsoft.AspNet.Identity;
+using DemoApi.APIFilter;
 
 namespace DemoApi.Controllers.V1
 {
 
 
     [RoutePrefix("api/v1/users")]
+    [DemoAuthorizeAttribute]
     public class UsersController: DemoApiBaseController
     {
         private IUserService _userService;
@@ -46,7 +48,7 @@ namespace DemoApi.Controllers.V1
             return new TCSuccessHttpActionResult(requestMessage, dataResponse);
         }
         [Route("register")]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         [HttpPost]
         public async Task<IHttpActionResult> RegisterUser(HttpRequestMessage requestMessage, RegisterBindingModel model)
         {
@@ -100,6 +102,13 @@ namespace DemoApi.Controllers.V1
             }
 
             return null;
+        }
+
+        [Route("checkaccesstoken")]
+        [HttpGet]
+        public async Task<IHttpActionResult> CheckingAccessToken(HttpRequestMessage requestMessage)
+        {
+            return new TCSuccessHttpActionResult(requestMessage,true);
         }
     }
 }

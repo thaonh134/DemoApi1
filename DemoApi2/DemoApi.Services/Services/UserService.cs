@@ -98,5 +98,50 @@ namespace DemoApi.Services.Services
             var user = await _aspNetUserRepository.GetAsync(x => x.Id == userId);
             return user;
         }
+        public async Task<LoginResultModel> Login(LoginModel loginModel)
+        {
+            var user = new ApplicationUser();
+            if (string.IsNullOrEmpty(loginModel.TypeDevice))
+            {
+                //Login with email && password (admin login)
+                var getUserInfor = UserMoreInfoModel.GetMoreUserInforByEmail(loginModel.UserName, LoginType.Admin);
+                if (getUserInfor == null || getUserInfor.Count == 0) throw new BaseApiException("Verify_UserLogin_Incorrect", "Verify_UserLogin_Incorrect");
+
+                user = await _userManager.FindAsync(getUserInfor[0].UserName, loginModel.Password);
+
+                if (user == null)
+                {
+                    throw new BaseApiException("Verify_UserLogin_Incorrect", "Verify_UserLogin_Incorrect");
+                }
+               
+            }
+            IdendityLoginResultModel idendityLoginResult = await CreateIdentityLogin(user, loginModel.AuthAuthenticationType);
+            return new LoginResultModel()
+            {
+                User = user,
+                IdendityLoginResult = idendityLoginResult
+            };
+        }
+        private async Task<IdendityLoginResultModel> CreateIdentityLogin(ApplicationUser user, string authAuthenticationType)
+        {
+            ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(_userManager, OAuthDefaults.AuthenticationType);
+            ClaimsIdentity cookiesIdentity = await user.GenerateUserIdentityAsync(_userManager, CookieAuthenticationDefaults.AuthenticationType);
+
+            var identity = new ClaimsIdentity(authAuthenticationType);
+            List<Claim> roles = oAuthIdentity.Claims.Where(c => c.Type == ClaimTypes.Role).ToList();
+            if (roles.Any())
+            {
+                identity.AddClaims(roles);
+            }
+            identity.AddClaim(new Claim(ClaimTypes.PrimarySid, user.Id));
+            return new IdendityLoginResultModel()
+            {
+                Identity = identity,
+                OAuthIdentity = oAuthIdentity,
+                CookiesIdentity = cookiesIdentity
+            };
+        }
+
+
     }
 }

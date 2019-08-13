@@ -20,6 +20,9 @@ namespace DemoApi.Database.DatabaseContext
             this.AspNetUserClaims = new HashSet<AspNetUserClaim>();
             this.AspNetUserLogins = new HashSet<AspNetUserLogin>();
             this.AspNetRoles = new HashSet<AspNetRole>();
+            this.RelationShips = new HashSet<RelationShip>();
+            this.RelationShips1 = new HashSet<RelationShip>();
+            this.RelationShips2 = new HashSet<RelationShip>();
         }
     
         public string Id { get; set; }
@@ -50,5 +53,11 @@ namespace DemoApi.Database.DatabaseContext
         public virtual ICollection<AspNetUserLogin> AspNetUserLogins { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AspNetRole> AspNetRoles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RelationShip> RelationShips { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RelationShip> RelationShips1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RelationShip> RelationShips2 { get; set; }
     }
 }

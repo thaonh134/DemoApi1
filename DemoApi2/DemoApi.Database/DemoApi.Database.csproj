@@ -176,9 +176,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DemoDbContext.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseContext\Friend.cs">
-      <DependentUpon>DemoDbContext.tt</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseContext\FriendRequest.cs">
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
@@ -198,6 +195,9 @@
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseContext\Medium.cs">
+      <DependentUpon>DemoDbContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseContext\RelationShip.cs">
       <DependentUpon>DemoDbContext.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseContext\sysdiagram.cs">
@@ -225,11 +225,13 @@
     <Compile Include="Repositories\Interfaces\IMediaFavoriteRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMediaDetailRepository.cs" />
     <Compile Include="Repositories\Interfaces\IMediaRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRelationShipRepository.cs" />
     <Compile Include="Repositories\MediaCommentDetailRepository.cs" />
     <Compile Include="Repositories\MediaCommentRepository.cs" />
     <Compile Include="Repositories\MediaFavoriteRepository.cs" />
     <Compile Include="Repositories\MediaDetailRepository.cs" />
     <Compile Include="Repositories\MediaRepository.cs" />
+    <Compile Include="Repositories\RelationShipRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

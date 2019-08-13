@@ -12,10 +12,12 @@ using DemoApi.Models.Medias;
 using DemoApi.Common.Pagination;
 using DemoApi.Common.Extension;
 using System.Threading.Tasks;
+using DemoApi.APIFilter;
 
 namespace DemoApi.Controllers.V1
 {
     [RoutePrefix("api/v1/medias")]
+    [DemoAuthorizeAttribute]
     public class MediasController : DemoApiBaseController
     {
         private IMediaService _mediaService;

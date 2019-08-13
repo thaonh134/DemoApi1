@@ -23,7 +23,7 @@ namespace DemoApi.App_Start
             config.Services.Replace(typeof(IExceptionHandler), new GlobalAPIExceptionHandler());
             //config.Services.Add(typeof(IExceptionLogger), new TraceExceptionLogger());
 
-            config.Filters.Add(new AuthorizeAttribute());
+            config.Filters.Add(new DemoAuthorizeAttribute());
             config.Filters.Add(new ValidateStatusUserAction());
             //config.Filters.Add(new ValidateModelStateFilter());
 
@@ -46,7 +46,7 @@ namespace DemoApi.App_Start
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             var json = config.Formatters.JsonFormatter;
 
-            //json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
+            json.SerializerSettings.PreserveReferencesHandling = Newtonsoft.Json.PreserveReferencesHandling.Objects;
             config.Formatters.Remove(config.Formatters.XmlFormatter);
 
         }

@@ -28,7 +28,7 @@ namespace DemoApi.APIFilter
             if (context.User != null && context.User.Identity != null && context.User.Identity.IsAuthenticated)
             {
                 var identity = (ClaimsIdentity)context.User.Identity;
-                var PrimarySid = identity.FindFirst(ClaimTypes.NameIdentifier);
+                var PrimarySid = identity.FindFirst(ClaimTypes.PrimarySid);
                 if (PrimarySid == null)
                 {
                     throw new UnAuthorizeException("AUTH_0003", "Phiên truy cập không hợp lệ");

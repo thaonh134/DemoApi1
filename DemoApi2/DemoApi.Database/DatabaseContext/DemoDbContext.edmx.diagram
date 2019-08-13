@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="b902c26ee724492388a87383ef590870" Name="Diagram1">
+      <Diagram DiagramId="b902c26ee724492388a87383ef590870" Name="Diagram1" ZoomLevel="64">
         <EntityTypeShape EntityType="test15_api_everModel.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.Album" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.AlbumDetail" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
@@ -16,7 +16,6 @@
         <EntityTypeShape EntityType="test15_api_everModel.AspNetUserClaim" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.AspNetUser" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="test15_api_everModel.Friend" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.FriendRequest" Width="1.5" PointX="6.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.Medium" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="test15_api_everModel.MediaComment" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
@@ -31,6 +30,10 @@
         <AssociationConnector Association="test15_api_everModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="test15_api_everModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="test15_api_everModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="test15_api_everModel.RelationShip" Width="1.5" PointX="5.25" PointY="15.625" />
+        <AssociationConnector Association="test15_api_everModel.FK_RelationShip_AspNetUsers" />
+        <AssociationConnector Association="test15_api_everModel.FK_RelationShip_AspNetUsers1" />
+        <AssociationConnector Association="test15_api_everModel.FK_RelationShip_AspNetUsers2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

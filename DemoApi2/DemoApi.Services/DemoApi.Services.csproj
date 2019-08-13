@@ -131,8 +131,10 @@
     <Compile Include="Services\ApplicationRoleManager.cs" />
     <Compile Include="Services\ApplicationUserManager.cs" />
     <Compile Include="Services\Interface\IMediaService.cs" />
+    <Compile Include="Services\Interface\IRelationShipService.cs" />
     <Compile Include="Services\Interface\IUserService.cs" />
     <Compile Include="Services\MediaService.cs" />
+    <Compile Include="Services\RelationShipService.cs" />
     <Compile Include="Services\UserService.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -13,6 +13,8 @@ using DemoApi.Models;
 using DemoApi.Services.Services;
 using DemoApi.Services;
 using DemoApi.Database.IdentityContext;
+using DemoApi.Helper;
+using Castle.Windsor;
 
 namespace DemoApi
 {
@@ -40,11 +42,12 @@ namespace DemoApi
             OAuthOptions = new OAuthAuthorizationServerOptions
             {
                 TokenEndpointPath = new PathString("/Token"),
-                Provider = new ApplicationOAuthProvider(PublicClientId),
+                Provider = new ApplicationOAuthProvider(PublicClientId, CastleHelper.Container.Resolve<IWindsorContainer>()),
                 AuthorizeEndpointPath = new PathString("/api/Account/ExternalLogin"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(14),
                 // In production mode set AllowInsecureHttp = false
-                AllowInsecureHttp = true
+                AllowInsecureHttp = true,
+                AccessTokenProvider = new DemoAccessTokenProvider()
             };
 
             // Enable the application to use bearer tokens to authenticate users

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="test15_api_everModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="test15_api_everModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -129,18 +129,6 @@
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpdatedDate" Type="datetime" />
         </EntityType>
-        <EntityType Name="Friend">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
-          <Property Name="FriendId" Type="nvarchar" MaxLength="128" />
-          <Property Name="Status" Type="int" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="UpdatedDate" Type="datetime" />
-          <Property Name="RelationId" Type="int" />
-        </EntityType>
         <EntityType Name="FriendRequest">
           <Key>
             <PropertyRef Name="Id" />
@@ -204,6 +192,21 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MediaId" Type="int" />
           <Property Name="UserId" Type="nvarchar" MaxLength="128" />
+        </EntityType>
+        <EntityType Name="RelationShip">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="User_One_Id" />
+            <PropertyRef Name="User_Two_Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="User_One_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="User_Two_Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Action_User_Id" Type="nvarchar" MaxLength="128" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="RelationId" Type="int" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -294,6 +297,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_RelationShip_AspNetUsers">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="RelationShip" Type="Self.RelationShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelationShip">
+              <PropertyRef Name="User_One_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelationShip_AspNetUsers1">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1" />
+          <End Role="RelationShip" Type="Self.RelationShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelationShip">
+              <PropertyRef Name="User_Two_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelationShip_AspNetUsers2">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="0..1" />
+          <End Role="RelationShip" Type="Self.RelationShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelationShip">
+              <PropertyRef Name="Action_User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="test15_api_everModelStoreContainer">
           <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Album" EntityType="Self.Album" Schema="dbo" store:Type="Tables" />
@@ -307,7 +346,6 @@
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Friend" EntityType="Self.Friend" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FriendRequest" EntityType="Self.FriendRequest" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Media" EntityType="Self.Media" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MediaComment" EntityType="Self.MediaComment" Schema="dbo" store:Type="Tables" />
@@ -315,6 +353,7 @@
           <EntitySet Name="MediaDetai" EntityType="Self.MediaDetai" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MediaFavorite" EntityType="Self.MediaFavorite" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MediaWishList" EntityType="Self.MediaWishList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RelationShip" EntityType="Self.RelationShip" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tags" EntityType="Self.Tags" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
@@ -335,9 +374,20 @@
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
           </AssociationSet>
+          <AssociationSet Name="FK_RelationShip_AspNetUsers" Association="Self.FK_RelationShip_AspNetUsers">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="RelationShip" EntitySet="RelationShip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelationShip_AspNetUsers1" Association="Self.FK_RelationShip_AspNetUsers1">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="RelationShip" EntitySet="RelationShip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelationShip_AspNetUsers2" Association="Self.FK_RelationShip_AspNetUsers2">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="RelationShip" EntitySet="RelationShip" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="test15_api_everModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -462,19 +512,10 @@
           <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
           <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
           <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-        </EntityType>
-        <EntityType Name="Friend">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="FriendId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="Status" Type="Int32" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="RelationId" Type="Int32" />
-        </EntityType>
+          <NavigationProperty Name="RelationShips" Relationship="test15_api_everModel.FK_RelationShip_AspNetUsers" FromRole="AspNetUser" ToRole="RelationShip" />
+          <NavigationProperty Name="RelationShips1" Relationship="test15_api_everModel.FK_RelationShip_AspNetUsers1" FromRole="AspNetUser" ToRole="RelationShip" />
+          <NavigationProperty Name="RelationShips2" Relationship="test15_api_everModel.FK_RelationShip_AspNetUsers2" FromRole="AspNetUser" ToRole="RelationShip" />
+          </EntityType>
         <EntityType Name="FriendRequest">
           <Key>
             <PropertyRef Name="Id" />
@@ -616,7 +657,6 @@
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
           <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
-          <EntitySet Name="Friends" EntityType="Self.Friend" />
           <EntitySet Name="FriendRequests" EntityType="Self.FriendRequest" />
           <EntitySet Name="Media" EntityType="Self.Medium" />
           <EntitySet Name="MediaComments" EntityType="Self.MediaComment" />
@@ -640,8 +680,75 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema>
+          <EntitySet Name="RelationShips" EntityType="test15_api_everModel.RelationShip" />
+          <AssociationSet Name="FK_RelationShip_AspNetUsers" Association="test15_api_everModel.FK_RelationShip_AspNetUsers">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="RelationShip" EntitySet="RelationShips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelationShip_AspNetUsers1" Association="test15_api_everModel.FK_RelationShip_AspNetUsers1">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="RelationShip" EntitySet="RelationShips" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RelationShip_AspNetUsers2" Association="test15_api_everModel.FK_RelationShip_AspNetUsers2">
+            <End Role="AspNetUser" EntitySet="AspNetUsers" />
+            <End Role="RelationShip" EntitySet="RelationShips" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="RelationShip">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="User_One_Id" />
+            <PropertyRef Name="User_Two_Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="User_One_Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="User_Two_Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Action_User_Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="RelationId" Type="Int32" />
+          <NavigationProperty Name="AspNetUser" Relationship="test15_api_everModel.FK_RelationShip_AspNetUsers" FromRole="RelationShip" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUser1" Relationship="test15_api_everModel.FK_RelationShip_AspNetUsers1" FromRole="RelationShip" ToRole="AspNetUser" />
+          <NavigationProperty Name="AspNetUser2" Relationship="test15_api_everModel.FK_RelationShip_AspNetUsers2" FromRole="RelationShip" ToRole="AspNetUser" />
+        </EntityType>
+        <Association Name="FK_RelationShip_AspNetUsers">
+          <End Type="test15_api_everModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="test15_api_everModel.RelationShip" Role="RelationShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelationShip">
+              <PropertyRef Name="User_One_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelationShip_AspNetUsers1">
+          <End Type="test15_api_everModel.AspNetUser" Role="AspNetUser" Multiplicity="1" />
+          <End Type="test15_api_everModel.RelationShip" Role="RelationShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelationShip">
+              <PropertyRef Name="User_Two_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RelationShip_AspNetUsers2">
+          <End Type="test15_api_everModel.AspNetUser" Role="AspNetUser" Multiplicity="0..1" />
+          <End Type="test15_api_everModel.RelationShip" Role="RelationShip" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUser">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RelationShip">
+              <PropertyRef Name="Action_User_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -771,19 +878,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Friends">
-            <EntityTypeMapping TypeName="test15_api_everModel.Friend">
-              <MappingFragment StoreEntitySet="Friend">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="FriendId" ColumnName="FriendId" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="RelationId" ColumnName="RelationId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="FriendRequests">
             <EntityTypeMapping TypeName="test15_api_everModel.FriendRequest">
               <MappingFragment StoreEntitySet="FriendRequest">
@@ -900,6 +994,20 @@
               <ScalarProperty Name="Id" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="RelationShips">
+            <EntityTypeMapping TypeName="test15_api_everModel.RelationShip">
+              <MappingFragment StoreEntitySet="RelationShip">
+                <ScalarProperty Name="RelationId" ColumnName="RelationId" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="Action_User_Id" ColumnName="Action_User_Id" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="User_Two_Id" ColumnName="User_Two_Id" />
+                <ScalarProperty Name="User_One_Id" ColumnName="User_One_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
