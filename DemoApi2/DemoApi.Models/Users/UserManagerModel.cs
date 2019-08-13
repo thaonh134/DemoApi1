@@ -11,6 +11,52 @@ using System.Threading.Tasks;
 
 namespace DemoApi.Models.Users
 {
+    class UserManagerModel
+    {
+    }
+    public class ViewUserModel
+    {
+        public string Id { get; set; }
+        public string UserName { get; set; }
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string Address { get; set; }
+        public string Description { get; set; }
+        public string ResourceUrl { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+
+    }
+
+    public class RegisterUserModel
+    {
+        public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        //public string Password { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string Address { get; set; }
+        public string ResourceUrl { get; set; }
+        public List<int> AreaIds { get; set; }
+        public List<int> AuthRoleIds { get; set; }
+
+    }
+    public class EditUserInforModel
+    {
+        //public string Id { get; set; }
+        //public string Email { get; set; }
+        public string PhoneNumber { get; set; }
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string Address { get; set; }
+        public string ResourceUrl { get; set; }
+        public string Description { get; set; }
+        public Nullable<System.DateTime> Birthday { get; set; }
+        public Nullable<int> Gender { get; set; }
+    }
+
     public class UserMoreInfoModel
     {
         public string Id { get; set; }
@@ -43,8 +89,8 @@ namespace DemoApi.Models.Users
                 IAspNetUserRepository aspNetUserRepository = new AspNetUserRepository(dbContext);
                 var data = aspNetUserRepository.GetMulti(x => x.Email == Email);
                 if (data == null) return null;
-                 result = Mapper.Map<List<UserMoreInfoModel>>(data);
-                
+                result = Mapper.Map<List<UserMoreInfoModel>>(data);
+
             }
 
             return result;

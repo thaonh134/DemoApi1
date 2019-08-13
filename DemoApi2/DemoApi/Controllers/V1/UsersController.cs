@@ -9,7 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Threading.Tasks;
-using DemoApi.Models.Users.UserManagerModel;
+using DemoApi.Models.Users;
 using DemoApi.Models;
 using DemoApi.Database.IdentityContext;
 using DemoApi.Services;

@@ -1,4 +1,6 @@
 ﻿using DemoApi.APIFilter;
+using DemoApi.Common.Extension;
+using DemoApi.Common.Pagination;
 using DemoApi.HttpActionResult;
 using DemoApi.Models.RelationShips;
 using DemoApi.Services.Services.Interface;
@@ -54,7 +56,18 @@ namespace DemoApi.Controllers.V1
         public async Task<IHttpActionResult> GetAllRelationShip(HttpRequestMessage requestMessage,
            string UserId)
         {
-            return new TCSuccessHttpActionResult(requestMessage, await _relationShipService.GetAllRelationShip(UserId));
+            return new TCSuccessHttpActionResult(requestMessage, await _relationShipService.GetAllRelationShipData(UserId));
+        }
+        [Route("getalluserinrelation")]
+        [HttpGet]
+        public async Task<IHttpActionResult> GetAllUserInRelation(HttpRequestMessage requestMessage,
+           string userId
+            ,string userName
+            , int? pageNumber = null,
+            int? pageSize = null)
+        {
+            PaginationRequest pagedDataRequest = new PaginationRequest(pageNumber.DefaultZeroIfNull(), pageSize);
+            return new TCSuccessHttpActionResult(requestMessage, await _relationShipService.GetAllUserInRelation(pagedDataRequest,userId, userName));
         }
     }
 }

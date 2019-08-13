@@ -3,7 +3,6 @@ using DemoApi.Common.Model;
 using DemoApi.Database.DatabaseContext;
 using DemoApi.Database.IdentityContext;
 using DemoApi.Models.Users;
-using DemoApi.Models.Users.UserManagerModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +15,7 @@ namespace DemoApi.AutoMapConfig.UserMap
     {
         public UserMapping()
         {
+            CreateMap<AspNetUser, ViewUserModel>();
             CreateMap<AspNetUser, UserMoreInfoModel>();
 
             CreateMap<AspNetUser, AspNetUserCommon>();

@@ -14,7 +14,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DemoApi.Services.Services.Interface;
 using DemoApi.Services.Common;
-using DemoApi.Models.Users.UserManagerModel;
 using Microsoft.AspNet.Identity;
 using DemoApi.Database.DatabaseContext;
 using DemoApi.Database.Repositories.Interfaces;

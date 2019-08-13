@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using DemoApi.Common.Enums;
+using DemoApi.Common.Pagination;
 using DemoApi.Database.Base;
 using DemoApi.Database.DatabaseContext;
 using DemoApi.Database.Repositories.Interfaces;
 using DemoApi.Models.RelationShips;
+using DemoApi.Models.Users;
 using DemoApi.Services.Common;
 using DemoApi.Services.Services.Interface;
 using System;
@@ -70,15 +72,19 @@ namespace DemoApi.Services.Services
             else return true;
         }
 
-        public async Task<List<ViewRelationShipModel>> GetAllRelationShip(string UserId)
+        public async Task<List<ViewRelationShipModel>> GetAllRelationShipData(string UserId)
         {
-            var items =  await _relationShiprepositoty.GetAsync(x => (
+            var items =  await _relationShiprepositoty.GetMultiAsync(x => (
             (x.User_One_Id == UserId || x.User_Two_Id == UserId)&& x.Status == (int)RelationShipStatus.Accepted
             ));
             if (items == null) return new List<ViewRelationShipModel>();
             return Mapper.Map<List<ViewRelationShipModel>>(items);
         }
 
-
+        public async Task<PaginationAndDataResult<ViewUserModel>> GetAllUserInRelation(PaginationRequest pageDataRequest, string UserId,string UserName)
+        {
+            var items = await _relationShiprepositoty.GetAllUserInRelation(pageDataRequest, UserId, _relationShiprepositoty.ExpressionSearch(UserName), x => x.OrderByDescending(t => t.UserName));
+            return Mapper.Map<PaginationAndDataResult<ViewUserModel>>(items);
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace DemoApi.Models.RelationShips
         public int Id { get; set; }
         public string User_One_Id { get; set; }
         public string User_Two_Id { get; set; }
-        public RelationShipStatus ActiveStatus { get; set; }
+        public RelationShipStatus Status { get; set; }
         public string Action_User_Id { get; set; }
     }
 }
