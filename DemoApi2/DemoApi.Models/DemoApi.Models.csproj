@@ -143,6 +143,7 @@
     <Compile Include="Base\BaseModel.cs" />
     <Compile Include="Base\IdAndNameModel.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="Diarys\ViewDiaryModel.cs" />
     <Compile Include="Mappers\Medias\MediaMapping.cs" />
     <Compile Include="Mappers\RelationShips\RelationShipMapping.cs" />
     <Compile Include="Mappers\Users\UserMapping.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Medias\AddMediaModel.cs" />
     <Compile Include="Medias\MediaCommentModel.cs" />
     <Compile Include="Medias\MediaDetailModel.cs" />
+    <Compile Include="Medias\ViewMediaModel.cs" />
     <Compile Include="Medias\MediaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RelationShips\RelationShipManagerModel.cs" />

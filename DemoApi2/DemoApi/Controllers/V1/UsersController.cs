@@ -37,9 +37,9 @@ namespace DemoApi.Controllers.V1
         }
         [Route("getUserInfor")]
         [HttpGet]
-        public IHttpActionResult GetUserInfor(HttpRequestMessage requestMessage)
+        public async Task<IHttpActionResult> GetUserInfor(HttpRequestMessage requestMessage)
         {
-            var users = _userService.GetUserInfor();
+            var users = await _userService.GetUserInfor();
             if (users == null)
                 return new TCErrorHttpActionResult(requestMessage, "AUTH_0001", "Phiên truy cập không được phép()");
 
@@ -57,7 +57,7 @@ namespace DemoApi.Controllers.V1
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email, CreatedDate = DateTime.UtcNow };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email,FirstName=model.FirstName,LastName=model.LastName, CreatedDate = DateTime.UtcNow };
 
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (!result.Succeeded)

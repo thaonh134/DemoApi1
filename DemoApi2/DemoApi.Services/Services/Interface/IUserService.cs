@@ -11,7 +11,7 @@ namespace DemoApi.Services.Services.Interface
 {
     public interface IUserService
     {
-        UserMoreInfoModel GetUserInfor();
+        Task<UserMoreInfoModel> GetUserInfor();
 
         Task<IdentityResult> EditUserInfor(EditUserInforModel model);
 

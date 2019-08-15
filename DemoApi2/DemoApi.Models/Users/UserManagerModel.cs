@@ -3,6 +3,8 @@ using DemoApi.Common.Enums;
 using DemoApi.Database.DatabaseContext;
 using DemoApi.Database.Repositories;
 using DemoApi.Database.Repositories.Interfaces;
+using DemoApi.Models.Diarys;
+using DemoApi.Models.Medias;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -68,6 +70,12 @@ namespace DemoApi.Models.Users
         public string Address { get; set; }
         public string Description { get; set; }
         public string ResourceUrl { get; set; }
+        public int AdmireCount { get; set; }
+        public int CommendCount { get; set; }
+        public int DiprieReadCount { get; set; }
+        public List<ViewDiaryModel> FavoriteDiary { get; set; }
+        public List<ViewMediaModel> FavoriteMedia { get; set; }
+
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public static UserMoreInfoModel GetMoreUserInfor(string userId)
         {

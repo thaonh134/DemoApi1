@@ -86,11 +86,11 @@ namespace DemoApi.Services.Services
             return resultTask;
         }
 
-        public UserMoreInfoModel GetUserInfor()
+        public async Task< UserMoreInfoModel> GetUserInfor()
         {
             var userId = CurrentUserIdentityClaimHelper.UserId;
-            var user = UserMoreInfoModel.GetMoreUserInfor(userId);
-            return user;
+            var data = await _aspNetUserRepository.GetAsync(x => x.Id == userId);
+            return Mapper.Map<UserMoreInfoModel>(data); ;
         }
         private async Task<AspNetUser> GetById(string userId)
         {
