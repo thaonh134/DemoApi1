@@ -51,13 +51,13 @@ namespace DemoApi.Controllers.V1
         {
             return new TCSuccessHttpActionResult(requestMessage, await _relationShipService.CheckingRelationShip(UserIdOne, UserIdTwo));
         }
-        [Route("getallrelationship")]
-        [HttpGet]
-        public async Task<IHttpActionResult> GetAllRelationShip(HttpRequestMessage requestMessage,
-           string UserId="")
-        {
-            return new TCSuccessHttpActionResult(requestMessage, await _relationShipService.GetAllRelationShipData(UserId));
-        }
+        //[Route("getallrelationshipdata")]
+        //[HttpGet]
+        //public async Task<IHttpActionResult> GetAllRelationShip(HttpRequestMessage requestMessage,
+        //   string UserId="")
+        //{
+        //    return new TCSuccessHttpActionResult(requestMessage, await _relationShipService.GetAllRelationShipData(UserId));
+        //}
         [Route("getalluserinrelation")]
         [HttpGet]
         public async Task<IHttpActionResult> GetAllUserInRelation(HttpRequestMessage requestMessage,
