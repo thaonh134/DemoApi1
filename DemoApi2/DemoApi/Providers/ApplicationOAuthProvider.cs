@@ -66,7 +66,7 @@ namespace DemoApi.Providers
                 }
                 catch (BaseApiException vovEx)
                 {
-                    context.SetError(vovEx.VOVErrorCode, vovEx.VOVErrorMessage);
+                    context.SetError(vovEx.ErrorCode, vovEx.ErrorMessage);
                 }
             }
 

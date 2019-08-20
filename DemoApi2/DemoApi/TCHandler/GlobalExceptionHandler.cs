@@ -26,12 +26,12 @@ namespace DemoApi.TCHandler
             else if (exception is UnAuthorizeException)
             {
                 var TCException = exception as BaseApiException;
-                context.Result = new TCErrorHttpActionResult(context.Request, HttpStatusCode.Unauthorized, TCException.VOVErrorCode, TCException.VOVErrorMessage);
+                context.Result = new TCErrorHttpActionResult(context.Request, HttpStatusCode.Unauthorized, TCException.ErrorCode, TCException.ErrorMessage);
             }
             else if (exception is BaseApiException)
             {
                 var TCException = exception as BaseApiException;
-                context.Result = new TCErrorHttpActionResult(context.Request, TCException.VOVErrorCode, TCException.VOVErrorMessage);
+                context.Result = new TCErrorHttpActionResult(context.Request, TCException.ErrorCode, TCException.ErrorMessage);
             }
             else if (exception is DbUpdateException)
             {

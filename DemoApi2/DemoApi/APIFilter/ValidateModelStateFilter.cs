@@ -1,4 +1,5 @@
-﻿using DemoApi.Helper;
+﻿using DemoApi.Common.Exceptions;
+using DemoApi.Helper;
 using DemoApi.HttpActionResult.ResultResponse;
 using FluentValidation;
 using FluentValidation.Attributes;
@@ -18,6 +19,26 @@ namespace DemoApi.APIFilter
     {
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
+
+            var modelState = actionContext.ModelState;
+
+            if (!modelState.IsValid)
+            {
+                var errors = new List<string>();
+                foreach (var state in modelState)
+                {
+                    foreach (var error in state.Value.Errors)
+                    {
+                        errors.Add(error.ErrorMessage);
+                    }
+                }
+                throw new BaseApiException("ModelState_invalid", String.Join(" ", errors.ToArray()));
+
+            }
+            //actionContext.Response = actionContext.Request
+            //     .CreateErrorResponse(HttpStatusCode.BadRequest, modelState);
+            return;
+
             var actionArguments = GetTheActionArguments(actionContext);
 
             if (actionArguments == null)

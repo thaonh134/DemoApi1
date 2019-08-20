@@ -48,7 +48,7 @@ namespace DemoApi.Controllers.V1
             return new TCSuccessHttpActionResult(requestMessage, dataResponse);
         }
         [Route("register")]
-        //[AllowAnonymous]
+        [AllowAnonymous]
         [HttpPost]
         public async Task<IHttpActionResult> RegisterUser(HttpRequestMessage requestMessage, RegisterBindingModel model)
         {

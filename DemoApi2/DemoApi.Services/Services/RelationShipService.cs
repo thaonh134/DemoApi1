@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DemoApi.Common.Enums;
+using DemoApi.Common.Helper;
 using DemoApi.Common.Pagination;
 using DemoApi.Database.Base;
 using DemoApi.Database.DatabaseContext;
@@ -36,9 +37,10 @@ namespace DemoApi.Services.Services
                 model.User_One_Id = y;
                 model.User_Two_Id = x;
             }
-
             var itemEntry = Mapper.Map<RelationShip>(model);
+
             itemEntry.Status = (int)RelationShipStatus.Pending;
+            itemEntry.Action_User_Id = CurrentUserIdentityClaimHelper.UserId;
 
             _relationShiprepositoty.Create(itemEntry);
             return await _unitOfWork.SaveChangesAsync();
@@ -55,7 +57,9 @@ namespace DemoApi.Services.Services
 
             var itemEntry = await _relationShiprepositoty.GetAsync(x => x.User_One_Id == model.User_One_Id && x.User_Two_Id == model.User_Two_Id);
             itemEntry = Mapper.Map(model, itemEntry);
-           
+
+            itemEntry.Action_User_Id = CurrentUserIdentityClaimHelper.UserId;
+
             _relationShiprepositoty.Update(itemEntry);
             return await _unitOfWork.SaveChangesAsync();
         }
@@ -74,8 +78,12 @@ namespace DemoApi.Services.Services
 
         public async Task<List<ViewRelationShipModel>> GetAllRelationShipData(string UserId)
         {
+            var _UserId = "";
+            if (string.IsNullOrEmpty(UserId)) _UserId = CurrentUserIdentityClaimHelper.UserId;
+            if (string.IsNullOrEmpty(_UserId)) _UserId = "3c0c5169-38d5-4206-91dc-a136bc6ccab1";
+
             var items =  await _relationShiprepositoty.GetMultiAsync(x => (
-            (x.User_One_Id == UserId || x.User_Two_Id == UserId)&& x.Status == (int)RelationShipStatus.Accepted
+            (x.User_One_Id == _UserId || x.User_Two_Id == _UserId) && x.Status == (int)RelationShipStatus.Accepted
             ));
             if (items == null) return new List<ViewRelationShipModel>();
             return Mapper.Map<List<ViewRelationShipModel>>(items);
@@ -83,7 +91,10 @@ namespace DemoApi.Services.Services
 
         public async Task<PaginationAndDataResult<ViewUserModel>> GetAllUserInRelation(PaginationRequest pageDataRequest, string UserId,string UserName)
         {
-            var items = await _relationShiprepositoty.GetAllUserInRelation(pageDataRequest, UserId, _relationShiprepositoty.ExpressionSearch(UserName), x => x.OrderByDescending(t => t.UserName));
+            var _UserId = "";
+            if (string.IsNullOrEmpty(UserId)) _UserId = CurrentUserIdentityClaimHelper.UserId;
+            if (string.IsNullOrEmpty(_UserId)) _UserId = "3c0c5169-38d5-4206-91dc-a136bc6ccab1";
+            var items = await _relationShiprepositoty.GetAllUserInRelation(pageDataRequest, _UserId, _relationShiprepositoty.ExpressionSearch(UserName), x => x.OrderByDescending(t => t.UserName));
             return Mapper.Map<PaginationAndDataResult<ViewUserModel>>(items);
         }
     }

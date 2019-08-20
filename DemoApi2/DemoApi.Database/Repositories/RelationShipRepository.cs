@@ -23,11 +23,11 @@ namespace DemoApi.Database.Repositories
         }
         public Expression<Func<AspNetUser, bool>> ExpressionSearch( string username)
         {
-            //Expression<Func<Medium, bool>> ex_search;
+            Expression<Func<AspNetUser, bool>> ex_search;
             //if (lastId.HasValue)         ex_search = (x => x.UserId.Equals(UserId) && x.Id < lastId);
             //else ex_search = (x => x.UserId.Equals(UserId) );
-            Expression<Func<AspNetUser, bool>> ex_search = (x => x.LastName.Equals(username) ); ;
-            return ex_search;
+            if (!string.IsNullOrEmpty(username)) ex_search= (x => x.LastName.Equals(username));
+           return null;
         }
         public async Task<PaginationAndDataResult<AspNetUser>> GetAllUserInRelation(PaginationRequest paginationRequest, string UserId, Expression<Func<AspNetUser, bool>> filter, Func<IQueryable<AspNetUser>, IOrderedQueryable<AspNetUser>> orderCondition = null)
         {

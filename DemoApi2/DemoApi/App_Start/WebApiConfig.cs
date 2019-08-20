@@ -25,7 +25,7 @@ namespace DemoApi.App_Start
 
             config.Filters.Add(new DemoAuthorizeAttribute());
             config.Filters.Add(new ValidateStatusUserAction());
-            //config.Filters.Add(new ValidateModelStateFilter());
+            config.Filters.Add(new ValidateModelStateFilter());
 
             config.MessageHandlers.Add(new RequestResponseHandler());
 

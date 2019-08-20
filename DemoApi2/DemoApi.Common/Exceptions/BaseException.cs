@@ -8,13 +8,13 @@ namespace DemoApi.Common.Exceptions
 {
     public class BaseApiException : Exception
     {
-        public string VOVErrorCode { get; set; }
-        public string VOVErrorMessage { get; set; }
+        public string ErrorCode { get; set; }
+        public string ErrorMessage { get; set; }
 
         public BaseApiException(string code, string message)
         {
-            VOVErrorCode = code;
-            VOVErrorMessage = message;
+            ErrorCode = code;
+            ErrorMessage = message;
         }
     }
 }
