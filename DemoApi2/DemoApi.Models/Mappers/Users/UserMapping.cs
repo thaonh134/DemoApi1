@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DemoApi.Common.Enums;
 using DemoApi.Common.Model;
 using DemoApi.Database.DatabaseContext;
 using DemoApi.Database.IdentityContext;
@@ -17,9 +18,15 @@ namespace DemoApi.AutoMapConfig.UserMap
     {
         public UserMapping()
         {
-            CreateMap<AspNetUser, ViewUserModel>();
-            CreateMap<AspNetUser, UserMoreInfoModel>().
-                AfterMap((s, dst) =>
+            CreateMap<AspNetUser, ViewUserModel>()
+                .ForMember(dst => dst.Gender, opt => opt.MapFrom(s => (GenderType?)s.Gender));
+            CreateMap<ApplicationUser, EditUserInforModel>()
+            .ForMember(dst => dst.Gender, opt => opt.MapFrom(s => (GenderType?)s.Gender));
+            CreateMap<AspNetUser, EditUserInforModel>()
+                .ForMember(dst => dst.Gender, opt => opt.MapFrom(s => (GenderType?)s.Gender));
+            CreateMap<AspNetUser, UserMoreInfoModel>()
+                .ForMember(dst => dst.Gender, opt => opt.MapFrom(s => ((GenderType?)s.Gender).DescriptionAttr()))
+                .AfterMap((s, dst) =>
             {
 
                 dst.AdmireCount = 0;
@@ -42,8 +49,6 @@ namespace DemoApi.AutoMapConfig.UserMap
             });
 
             CreateMap<AspNetUser, AspNetUserCommon>();
-            CreateMap<ApplicationUser, EditUserInforModel>();
-            CreateMap<AspNetUser, EditUserInforModel>();
             CreateMap<EditUserInforModel, ApplicationUser>()
                .ForMember(dst => dst.Email, opt => opt.Ignore())
                .ForMember(dst => dst.Id, opt => opt.Ignore())
@@ -56,7 +61,8 @@ namespace DemoApi.AutoMapConfig.UserMap
                .ForMember(dst => dst.LockoutEndDateUtc, opt => opt.Ignore())
                .ForMember(dst => dst.LockoutEnabled, opt => opt.Ignore())
                .ForMember(dst => dst.AccessFailedCount, opt => opt.Ignore())
-               
+                .ForMember(dst => dst.Gender, opt => opt.MapFrom(s => (int?)s.Gender))
+
             ;
         }
     }

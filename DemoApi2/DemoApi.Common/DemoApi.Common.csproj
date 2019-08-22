@@ -124,6 +124,7 @@
     <Compile Include="AppSettingWebConfig\StagingSetting.cs" />
     <Compile Include="AppSettingWebConfig\WindsorInstall.cs" />
     <Compile Include="Enums\CommonStatus.cs" />
+    <Compile Include="Enums\CommonValue.cs" />
     <Compile Include="Enums\EnumHelper.cs" />
     <Compile Include="Enums\RoleType.cs" />
     <Compile Include="Exceptions\BaseException.cs" />

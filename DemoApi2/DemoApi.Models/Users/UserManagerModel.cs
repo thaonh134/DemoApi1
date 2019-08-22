@@ -27,7 +27,7 @@ namespace DemoApi.Models.Users
         public string Address { get; set; }
         public string Description { get; set; }
         public string ResourceUrl { get; set; }
-        public Nullable<int> Gender { get; set; }
+        public GenderType? Gender { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
@@ -57,8 +57,8 @@ namespace DemoApi.Models.Users
         public string Address { get; set; }
         public string ResourceUrl { get; set; }
         public string Description { get; set; }
+        public GenderType? Gender { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
-        public Nullable<int> Gender { get; set; }
     }
 
     public class UserMoreInfoModel
@@ -75,7 +75,7 @@ namespace DemoApi.Models.Users
         public int AdmireCount { get; set; }
         public int CommendCount { get; set; }
         public int DiprieReadCount { get; set; }
-        public Nullable<int> Gender { get; set; }
+        public string Gender { get; set; }
         public Nullable<System.DateTime> Birthday { get; set; }
         public List<ViewDiaryModel> FavoriteDiary { get; set; }
         public List<ViewMediaModel> FavoriteMedia { get; set; }
